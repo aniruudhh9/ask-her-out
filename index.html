@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take You Out on a Date</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .header_text {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .gif_container img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .btn {
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+
+        .btn:hover {
+            background-color: #ff6600;
+        }
+
+        #noButton {
+            position: absolute;
+        }
+
+        @keyframes moveAnimation {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(var(--moveX), var(--moveY));
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div>
+            <h1 class="header_text">Hello Doc</h1>
+            <h1 class="header_text">Will you give me a chance to take you out on a date?</h1>
+        </div>
+
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
+                alt="Cute animated illustration">
+        </div>
+
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function nextPage() {
+            window.location.href = "yes.html";
+        }
+
+        function moveButton() {
+            var button = document.getElementById('noButton');
+            var x = Math.random() * (window.innerWidth - button.offsetWidth - 50);
+            var y = Math.random() * (window.innerHeight - button.offsetHeight - 50);
+            button.style.setProperty('--moveX', `${x}px`);
+            button.style.setProperty('--moveY', `${y}px`);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+
+</body>
+
+</html>
